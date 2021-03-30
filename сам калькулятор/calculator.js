@@ -17,45 +17,28 @@ let getNumbers = function() {
     }
     return result;
 }
+ let onOperationBtnClick = function(e) {
+    let pressOperation = e.target;
+    let operationValue = pressOperation.value;
+    let numberValue = getNumbers();
+    let resultValue;
+    if (operationValue == "+") {
+        resultValue = numberValue.num1 + numberValue.num2;
+    } else if (operationValue == "-") {
+        resultValue = numberValue.num1 - numberValue.num2;
+    } else if (operationValue == "*") {
+        resultValue = numberValue.num1 * numberValue.num2;
+    } else if (operationValue == "/") {
+        resultValue = numberValue.num1 / numberValue.num2;
+    }
+    window.alert("Ирочка будет: " + resultValue);
+ }
 
-
-let numberPlusButton = document.getElementById("1");
-
-var clickPlusButton = function() {
-    let numbersValues = getNumbers();
-
-    let value3 = numbersValues.num1 + numbersValues.num2; 
-    window.alert("Ирочка будет: " + value3);
+let getBtnByid = function(id) {
+    let btn = document.getElementById(id);
+    btn.addEventListener('click', onOperationBtnClick);
 }
-numberPlusButton.addEventListener('click', clickPlusButton);
-
-let numberMinusButton = document.getElementById("minusBtn");
-
-let clickMinusButton = function() {
-    let numbersValues = getNumbers();
-
-    let value3 = numbersValues.num1 - numbersValues.num2;
-    window.alert("Ирочка будет: " + value3);
+let operationBtn = ["1", "minusBtn", "multiplysBtn", "devideBtn"];
+for (let i = 0; i < operationBtn.length; i++) {
+    getBtnByid(operationBtn[i]);
 }
-numberMinusButton.addEventListener('click', clickMinusButton);
-
-let numberMultiplysButton = document.getElementById("multiplysBtn");
-
-let clickMultiplysButton = function() {
-    let numbersValues = getNumbers();
-
-    let value3 = numbersValues.num1 * numbersValues.num2; 
-    window.alert("Ирочка будет: " + value3);
-}
-numberMultiplysButton.addEventListener('click', clickMultiplysButton);
-
-let numberDevideButton = document.getElementById("devideBtn");
-
-let clickDevideButton = function() {
-    let numbersValues = getNumbers();
-
-    let value3 = numbersValues.num1 / numbersValues.num2;
-    window.alert("Ирочка будет: " + value3);
-}
-
-numberDevideButton.addEventListener('click', clickDevideButton);
