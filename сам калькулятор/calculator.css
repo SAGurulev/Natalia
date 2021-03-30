@@ -1,0 +1,17 @@
+.calculator {
+    width: 400px;
+    margin: 50px auto;
+    background-color: blue;
+}
+.display {
+    text-align: center;
+    padding: 20px;
+}
+.tilbar {
+    text-align: center;
+    padding: 20px;
+}
+.button {
+    width: 40px;
+    height: 40px;
+}
